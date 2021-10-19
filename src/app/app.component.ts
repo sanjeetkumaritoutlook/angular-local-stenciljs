@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-cop';
+  innerText: string | undefined;
+
+  @HostListener('buttonClicked', ['$event'])
+  buttonClickHandler(event: any) {
+    console.log(event);
+    this.innerText = `Button clicked was: ${event.detail.id}`;
+  }
 }
