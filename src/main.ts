@@ -21,7 +21,7 @@ const script = document.createElement('script');
  * Set this to dev, test, prod or local to switch environments
  * for the sandbox
  */
-export const fluid = fluidEnvironments.local;
+export const fluid = fluidEnvironments.external;
 
 if ('noModule' in script) {
   script.type = 'module';

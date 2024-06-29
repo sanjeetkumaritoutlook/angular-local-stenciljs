@@ -1,4 +1,5 @@
 import { Component, HostListener, EventEmitter,Output } from '@angular/core';
+import { fluid } from '../main';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,15 @@ import { Component, HostListener, EventEmitter,Output } from '@angular/core';
 export class AppComponent {
   innerText: string | undefined;
   initialvalue: string  = '<p>Hello StencilJS TinyMCE Editor!</p>';
-
+  validation = [
+    {
+      type: 'custom',
+      validatorFn: (value: any) => {
+        return value === '2023-05-23';
+      },
+      message: 'The value must 2023-05-23',
+    },
+  ];
   handleContentChange(event: Event) {
     const customEvent = event as CustomEvent<any>;
     console.log('Event received from StencilJS component:', customEvent.detail);
