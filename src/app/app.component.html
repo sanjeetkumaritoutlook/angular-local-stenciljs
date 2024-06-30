@@ -1,14 +1,5 @@
 <div>Angular Application with StencilJS web components</div>
-<h1>Angular App with StencilJS Editor</h1>
-<custom-rtf 
-
-[initialvalue]="initialvalue" 
-(valueChange)="onEditorChange($event)"
-  (editorFocus)="onEditorFocus()"
-  (editorBlur)="onEditorBlur()"
-  [disabled]="isEditorDisabled"
-(contentChanged)="handleContentChange($event)">
-</custom-rtf>
+<app-wrapper-editor></app-wrapper-editor>
 <test-button>Click!</test-button>
 
 <test-counter></test-counter>
