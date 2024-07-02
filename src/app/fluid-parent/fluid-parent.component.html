@@ -1,0 +1,22 @@
+<!-- ! Dublin FI and Commercial Template Set   -->
+<fluid-page
+  style="overflow:visible;"
+  class="fluid-page"
+  *ngIf="template === 'EUDUBPI_DUBLIN_FI_AND_COMMERCIAL'"
+  [leftSidebarConfig]="_leftSidebarConfig"
+  (menuItemClick)="handleMenuItemClick($event)">
+  <fluid-title level="3">Dublin FI and Commercial TS</fluid-title>
+  <fluid-form
+    id="dublinForm"
+    #dublinForm
+    [config]="dublinFormConfig"
+    (formChanged)="onFormEvent('formChanged', $event.detail, 'dublinForm')"
+    (valueChanged)="handleValueChanged($event.detail, 'dublinForm')"
+    (actionClicked)="formSubmitted($event, 'dublinForm')"
+  ></fluid-form>
+  <fluid-alert
+    [visible]="!!dublinFormConfig"
+    [message]="formValid ? 'Form is Valid!' : 'Form is Invalid!'"
+    [severity]="formValid ? 'success' : 'error'"
+  ></fluid-alert>
+</fluid-page>
