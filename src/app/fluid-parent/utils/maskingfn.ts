@@ -456,6 +456,177 @@ export const formatDisplayGenericRemovedSpecialChars = (value) =>
 //to be used only when special characters masking is used similar to Opus Wizard
 // validatorFn: (value) => !!value ?  value.match(/^\s*?\$*?[-+]?[\s*0-9*]+(,[0-9]+)?\d*(\.\d+)?$/) : true,
 
+export const formatTime = (value) => {
+  if (value != undefined) {
+    let curValue = value.replace('.', ':');
+    let firstNumber, secondNumber, thirdNumber, tempValue;
+    curValue = curValue.split('')[0] === '0' ? curValue.slice(1) : curValue;
+    tempValue = curValue;
+
+    if (
+      tempValue.includes('am') ||
+      tempValue.includes('AM') ||
+      tempValue.includes('Am') ||
+      tempValue.includes('aM') ||
+      tempValue.includes('pm') ||
+      tempValue.includes('PM') ||
+      tempValue.includes('Pm') ||
+      tempValue.includes('pM')
+    ) {
+      tempValue = tempValue.replace(/(([Aa]|[Pp])\.?[Mm]\.?)/, '');
+    } else {
+      tempValue = tempValue;
+    }
+
+    let arr = tempValue.split(':');
+    for (let i = 0; i < arr.length; i++) {
+      // arr[i] = arr[i].length<=1 ? arr[i].padStart(2, '0') : arr[i]
+      if (arr[i].length <= 1) {
+        arr[i] = arr[i].padStart(2, '0');
+      } else if (arr[i].length > 2) {
+        arr[i] = 0;
+      } else {
+        arr[i] = arr[i];
+      }
+    }
+    arr = arr.join(':');
+
+    firstNumber = Number(arr.slice(0, 2).replace(':', ''));
+    secondNumber = Number(arr.slice(3, 5).replace(':', ''));
+    thirdNumber = Number(arr.slice(6, 8).replace(':', ''));
+
+    let hour;
+    if (
+      firstNumber <= 23 &&
+      (value.includes('pm') ||
+        value.includes('PM') ||
+        value.includes('Pm') ||
+        value.includes('pM'))
+    )
+      hour = firstNumber + 12;
+    else if (
+      firstNumber <= 23 &&
+      !(
+        value.includes('pm') ||
+        value.includes('PM') ||
+        value.includes('Pm') ||
+        value.includes('pM')
+      )
+    )
+      hour = firstNumber;
+    else if (firstNumber <= 23) hour = firstNumber;
+    else hour = 0;
+    let minute = secondNumber <= 59 ? secondNumber : 0;
+    let sec = thirdNumber <= 59 ? thirdNumber : 0;
+
+    return `${String(hour).padStart(2, '0')}:${String(minute).padStart(
+      2,
+      '0'
+    )}:${String(sec).padStart(2, '0')}`;
+  }
+};
+export const validateTime = (value) => {
+  value = value === '0' ? '00' : value;
+  let firstNumber, secondNumber, thirdNumber, tempValue, val;
+  value = value.split('')[0] === '0' ? value.slice(1) : value;
+  tempValue = value;
+
+  if (
+    tempValue.includes('am') ||
+    tempValue.includes('AM') ||
+    tempValue.includes('Am') ||
+    tempValue.includes('aM') ||
+    tempValue.includes('pm') ||
+    tempValue.includes('PM') ||
+    tempValue.includes('Pm') ||
+    tempValue.includes('pM')
+  ) {
+    val = tempValue.replace(/(([Aa]|[Pp])\.?[Mm]\.?)/, '');
+  } else {
+    val = tempValue;
+  }
+
+  let arr = val.split(':');
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].length <= 1 ? arr[i].padStart(2, '0') : arr[i];
+  }
+  arr = arr.join(':');
+
+  firstNumber = arr.slice(0, 2);
+  secondNumber = Number(arr.slice(3, 5).replace(':', ''));
+  thirdNumber = Number(arr.slice(6, 8).replace(':', ''));
+
+  if (value != '') {
+    if (value === '24' || value === '024') return true;
+    else if (firstNumber <= 23 && secondNumber <= 59 && thirdNumber <= 59)
+      return true;
+    else if (
+      tempValue.includes('am') ||
+      tempValue.includes('AM') ||
+      tempValue.includes('Am') ||
+      tempValue.includes('aM') ||
+      tempValue.includes('pm') ||
+      tempValue.includes('PM') ||
+      tempValue.includes('Pm') ||
+      tempValue.includes('pM')
+    )
+      return true;
+    else return false;
+  } else {
+    return false;
+  }
+};
+
+export const validateTimeZeroIncluded = (value) => {
+  value = value === '0' ? '00' : value;
+  let firstNumber, secondNumber, thirdNumber, tempValue, val;
+  value = value.split('')[0] === '0' ? value.slice(1) : value;
+  tempValue = value;
+
+  if (
+    tempValue.includes('am') ||
+    tempValue.includes('AM') ||
+    tempValue.includes('Am') ||
+    tempValue.includes('aM') ||
+    tempValue.includes('pm') ||
+    tempValue.includes('PM') ||
+    tempValue.includes('Pm') ||
+    tempValue.includes('pM')
+  ) {
+    val = tempValue.replace(/(([Aa]|[Pp])\.?[Mm]\.?)/, '');
+  } else {
+    val = tempValue;
+  }
+
+  let arr = val.split(':');
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].length <= 1 ? arr[i].padStart(2, '0') : arr[i];
+  }
+  arr = arr.join(':');
+
+  firstNumber = arr.slice(0, 2);
+  secondNumber = Number(arr.slice(3, 5).replace(':', ''));
+  thirdNumber = Number(arr.slice(6, 8).replace(':', ''));
+
+  if (value != '') {
+    if (secondNumber <= 59 && thirdNumber <= 59) return true;
+    else if (
+      tempValue.includes('am') ||
+      tempValue.includes('AM') ||
+      tempValue.includes('Am') ||
+      tempValue.includes('aM') ||
+      tempValue.includes('pm') ||
+      tempValue.includes('PM') ||
+      tempValue.includes('Pm') ||
+      tempValue.includes('pM')
+    )
+      return true;
+    else return false;
+  } else {
+    return false;
+  }
+};
+
 //CIDHSD-12052: maskingFn to display negative sign with parentheses
 export const formatDisplayInternationalNumberNegativeParenthesis = (value) =>
   value.replace(/\B(?=(\d{3})+\b)/g, ',').replace(/-(.*)/, '($1)');
