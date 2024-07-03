@@ -128,7 +128,7 @@ import {
 })
 export class FluidParentComponent implements OnInit {
   theme$: BehaviorSubject<string> = new BehaviorSubject<string>('corp');
-
+//External facing link: https://claims-intake.libertymutualsurety.com/intake
   @ViewChild('dublinForm') dublinForm: ElementRef;
 //Sidebar Full Solution: https://stackblitz.com/edit/angular-ivy-4fnsij?file=src%2Fapp%2Fapp.component.ts
 //Angular error removed for tsconfig any type validation as angular v12 is throwing
