@@ -6,6 +6,8 @@ To use stenciljs components with a local npm link:
 1. in your stenciljs project, run `npm run build`, then `npm link`
 3. in this project, run `npm link project-name`
 
+# Fix for 'error:03000086:digital envelope routines::initialization error'
+set NODE_OPTIONS=--openssl-legacy-provider
 
 # angular-local-stenciljs
 angular-local-stenciljs
