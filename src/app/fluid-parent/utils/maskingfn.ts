@@ -626,6 +626,38 @@ export const validateTimeZeroIncluded = (value) => {
     return false;
   }
 };
+export const formatRemoveLeadingZeroesFromOutput = (value) =>
+  /^[-+]?[0-9]\d*(\.\d+)?$/.test(value)
+    ? (value.includes('-') ? '-' : '') +
+      parseFloat(value.replace(/-+/, '')).toFixed(/\./g.test(value) ? 2 : 0)
+    : value;
+export const titleCaseFirstWordOfEachLineTextArea = (input) => {
+  return input.replace(/^(\s*\w)/gm, function (match) {
+    return match.toUpperCase();
+  });
+};
+export const titleCaseFirstWordOfEachLineButNoLeadingSpace = (input) => {
+  return input.replace(/^( *)(\w)/gm, function (match, p1, p2) {
+    // If there are no leading spaces, capitalize the first character
+    if (p1.length === 0) {
+      return p2.toUpperCase();
+    } else {
+      // If there are leading spaces, return the original match and also remove leading space from that line
+      return match.replace(/^\s+(\S)/gm, function (match, p1) {
+        // Remove leading spaces and return the first non-whitespace character
+        return p1;
+      });
+    }
+    return match;
+  });
+};
+
+export const formatNumbertoAbsoluteValue = (value) =>
+  /^[-+]?\s*?[0-9]\d*(\.\d+)?$/.test(value)
+    ? parseFloat(String(Math.abs(value)))
+        .toFixed(2)
+        .replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
+    : value;
 
 //CIDHSD-12052: maskingFn to display negative sign with parentheses
 export const formatDisplayInternationalNumberNegativeParenthesis = (value) =>
