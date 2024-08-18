@@ -1,7 +1,7 @@
 <h1>Angular App with StencilJS Editor</h1>
 <custom-rtf #editorComponent
 [initialvalue]="initialvalue" 
-disable-quickbars="true"
+disable-quickbars="isQuickBarsDisabled"
 (valueChange)="onEditorChange($event)"
   (editorFocus)="onEditorFocus()"
   (editorBlur)="onEditorBlur()"

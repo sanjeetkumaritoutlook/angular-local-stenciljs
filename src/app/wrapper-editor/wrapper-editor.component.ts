@@ -26,7 +26,7 @@ export class WrapperEditorComponent implements AfterViewInit {
     height: 300
   };
   isEditorDisabled: boolean = false;
-
+  isQuickBarsDisabled: boolean = true;
   onEditorChange(event: Event) {
     const customEvent = event as CustomEvent<any>;
     console.log('Editor content changed:', customEvent.detail);
