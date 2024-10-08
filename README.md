@@ -12,6 +12,9 @@ set NODE_OPTIONS=--openssl-legacy-provider
 # angular-local-stenciljs
 angular-local-stenciljs
 
+# to uninstall  "stenciljs-components": "^0.0.1",
+npm uninstall stenciljs-components
+
 # how to use custom Elements (web components)
 in React:
 initialValue={'My Initial Value'}
