@@ -1,6 +1,6 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
+import { defineCustomElements } from 'stenciljs-components/loader';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 //import { defineCustomElements } from 'stenciljs-cop/loader';
@@ -13,7 +13,7 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-//defineCustomElements();
+defineCustomElements();
 
 const script = document.createElement('script');
 

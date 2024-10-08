@@ -15,6 +15,10 @@ angular-local-stenciljs
 # to uninstall  "stenciljs-components": "^0.0.1",
 npm uninstall stenciljs-components
 
+# to commit to remote of same branch
+# in this way you dont need to remember branch name
+git push origin HEAD
+
 # how to use custom Elements (web components)
 in React:
 initialValue={'My Initial Value'}
