@@ -27,5 +27,7 @@ export class AppComponent {
     this.innerText = `Button clicked was: ${event.detail.id}`;
   }
 
-  
+  buttonClick(e:any) {
+    console.log('custom event', e)
+  }
 }
