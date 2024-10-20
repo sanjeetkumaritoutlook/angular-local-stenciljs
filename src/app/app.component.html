@@ -1,14 +1,50 @@
-<div>Angular Application with StencilJS web components</div>
-<h1>from local running stencilJS app</h1>    
-<app-wrapper-editor></app-wrapper-editor>
-<test-button>Click!</test-button>
 
-<test-counter></test-counter>
+<router-outlet></router-outlet>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <h2>Profile Form</h2>
 
-<div *ngIf="this.innerText">{{ this.innerText }}</div>
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
 
-<fluid-card title="" collapsible="false" remove-header-border>
-  <!-- Your FLUID Components Here! -->
-  <fluid-datepicker [validation]="validation"> </fluid-datepicker>
-</fluid-card>
-<app-fluid-parent></app-fluid-parent>
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+  <div formGroupName="address">
+    <label for="street">Street: </label>
+    <input id="street" type="text" formControlName="street">
+  
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city">
+  
+    <label for="state">State: </label>
+    <input id="state" type="text" formControlName="state">
+  
+    <label for="zip">Zip Code: </label>
+    <input id="zip" type="text" formControlName="zip">
+  </div>
+
+  <combo-box [allowInput]="true" label="Album:" formControlName="comboBox" ngDefaultControl (comboBoxInput)="handleComboBox($event)"></combo-box>
+
+
+
+  <h1>TinyMCE 5 Angular Demo</h1>
+  <!-- <editor
+    formControlName="rte"
+    apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
+    [init]="{
+      height: 300,
+      menubar: false,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table paste code help wordcount'
+      ],
+      toolbar:
+        'undo redo | formatselect | bold italic backcolor | \
+        alignleft aligncenter alignright alignjustify | \
+        bullist numlist outdent indent | removeformat | help'
+    }"
+  ></editor> -->
+
+  <button type="submit">Submit</button>
+</form>

@@ -1,5 +1,5 @@
-import { Component, HostListener, EventEmitter,Output } from '@angular/core';
-import { fluid } from '../main';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +8,29 @@ import { fluid } from '../main';
 })
 export class AppComponent {
   
-  innerText: string | undefined;
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    address: new FormGroup({
+      street: new FormControl(''),
+      city: new FormControl(''),
+      state: new FormControl(''),
+      zip: new FormControl('')
+    }),
+    comboBox: new FormControl(''),
+    rte: new FormControl(''),
+  });
   
-  validation = [
-    {
-      type: 'custom',
-      validatorFn: (value: any) => {
-        return value === '2023-05-23';
-      },
-      message: 'The value must 2023-05-23',
-    },
-  ];
-  
-
-  @HostListener('buttonClicked', ['$event'])
-  buttonClickHandler(event: any) {
-    console.log(event);
-    this.innerText = `Button clicked was: ${event.detail.id}`;
+  handleComboBox(e: any) {
+    console.log("combo-box",e.detail);
+    
+    this.profileForm.patchValue({
+      comboBox: e.detail
+    })
+  }
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.profileForm.value);
   }
 
   
