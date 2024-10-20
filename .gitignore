@@ -10,6 +10,9 @@
 # dependencies
 /node_modules
 
+# Ignore cache created with the Angular CLI.
+.angular/
+
 # profiling files
 chrome-profiler-events*.json
 

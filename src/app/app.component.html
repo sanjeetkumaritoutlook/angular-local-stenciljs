@@ -23,28 +23,14 @@
     <input id="zip" type="text" formControlName="zip">
   </div>
 
-  <combo-box [allowInput]="true" label="Album:" formControlName="comboBox" ngDefaultControl (comboBoxInput)="handleComboBox($event)"></combo-box>
-
-
-
-  <h1>TinyMCE 5 Angular Demo</h1>
-  <!-- <editor
-    formControlName="rte"
-    apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
-    [init]="{
-      height: 300,
-      menubar: false,
-      plugins: [
-        'advlist autolink lists link image charmap print preview anchor',
-        'searchreplace visualblocks code fullscreen',
-        'insertdatetime media table paste code help wordcount'
-      ],
-      toolbar:
-        'undo redo | formatselect | bold italic backcolor | \
-        alignleft aligncenter alignright alignjustify | \
-        bullist numlist outdent indent | removeformat | help'
-    }"
-  ></editor> -->
 
   <button type="submit">Submit</button>
 </form>
+<h1>CkEditor Angular Demo</h1>
+  <ckeditor 
+  #editor [editor]="Editor"
+  [(ngModel)]="editorData" 
+  [config]="config" 
+  (change)="onEditorChange($event)"
+  (ready)="onReady($event)">
+</ckeditor>

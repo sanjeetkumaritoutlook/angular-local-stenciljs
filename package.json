@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^17.3.12",
     "@angular/platform-browser-dynamic": "^17.3.12",
     "@angular/router": "^17.3.12",
-    "@tinymce/tinymce-angular": "^8.0.1",
+    "@ckeditor/ckeditor5-angular": "^9.0.0",
     "query-selector-shadow-dom": "^1.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

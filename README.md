@@ -9,8 +9,35 @@ To use stenciljs components with a local npm link:
 # Fix for 'error:03000086:digital envelope routines::initialization error'
 set NODE_OPTIONS=--openssl-legacy-provider
 
-# angular-local-stenciljs
-angular-local-stenciljs
+# npm install invalid version error
+https://stackoverflow.com/questions/27543013/npm-install-fails-invalid-version
+
+Delete the node_modules folder
+Delete package-lock.json file
+run 
+npm cache clean --force
+npm install --force
+
+# set to public registry
+npm config set registry https://registry.npmjs.org/
+
+# best way to track live installation of package
+npm install --verbose
+
+https://stackoverflow.com/questions/16873973/npm-install-hangs
+
+# add to gitignore
+https://stackoverflow.com/questions/70479721/folder-added-it-gitignore-still-showing-up-in-the-git-changes
+
+# package-lock.json
+https://stackoverflow.com/questions/54124033/deleting-package-lock-json-to-resolve-conflicts-quickly
+
+# Update Specific Package to the Latest Version:
+
+npm update stenciljs-components
+
+# rename a local git branch
+https://sentry.io/answers/rename-a-local-git-branch/
 
 # to uninstall  "stenciljs-components": "^0.0.1",
 npm uninstall stenciljs-components

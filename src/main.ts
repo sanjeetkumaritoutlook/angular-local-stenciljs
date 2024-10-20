@@ -23,11 +23,5 @@ const script = document.createElement('script');
  */
 export const fluid = fluidEnvironments.external;
 
-if ('noModule' in script) {
-  script.type = 'module';
-  script.src = fluid.esm;
-} else {
-  script.type = 'text/javascript';
-  script.src = fluid.legacy;
-}
+
 document.head.appendChild(script);
