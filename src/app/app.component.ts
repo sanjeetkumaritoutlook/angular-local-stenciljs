@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,17 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AppComponent {
   
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl('')
+  profileForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl(''),
+    lastName: new UntypedFormControl(''),
+    address: new UntypedFormGroup({
+      street: new UntypedFormControl(''),
+      city: new UntypedFormControl(''),
+      state: new UntypedFormControl(''),
+      zip: new UntypedFormControl('')
     }),
-    comboBox: new FormControl(''),
-    rte: new FormControl(''),
+    comboBox: new UntypedFormControl(''),
+    rte: new UntypedFormControl(''),
   });
   
   handleComboBox(e: any) {
