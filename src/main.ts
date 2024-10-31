@@ -27,7 +27,7 @@ if ('noModule' in script) {
   script.type = 'module';
   script.src = fluid.esm;
 } else {
-  script.type = 'text/javascript';
-  script.src = fluid.legacy;
+  // script.type = 'text/javascript';
+  // script.src = fluid.legacy;
 }
 document.head.appendChild(script);

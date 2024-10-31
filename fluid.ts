@@ -21,7 +21,7 @@ export const fluidEnvironments = {
   },
   external: {
     label: 'External',
-    esm: 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js',
-    legacy: 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js',
+    esm: 'https://fluid.libertymutual.com/fluid/build/fluid.esm.js',
+    legacy: 'https://fluid.libertymutual.com/fluid/build/fluid.esm.js',
   },
 };
