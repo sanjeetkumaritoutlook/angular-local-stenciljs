@@ -44,7 +44,6 @@ jobs:
      #base-href in an Angular app defines the root path for resolving relative URLs to assets (CSS, JS, etc.). 
      #By default, Angular apps assume they are hosted at the root (/). 
      #The trailing slash at the end of base-href is important.
-
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
