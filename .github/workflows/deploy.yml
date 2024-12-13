@@ -38,16 +38,16 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --base-href=/consuming-angular-app/
+        run: npm run build -- --base-href=/angular-local-stenciljs/
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: ./dist/consuming-angular-app
+          path: ./dist/angular-local-stenciljs
     
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/consuming-angular-app
+          publish_dir: ./dist/angular-local-stenciljs
