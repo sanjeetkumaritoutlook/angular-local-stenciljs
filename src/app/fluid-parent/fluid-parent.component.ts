@@ -120,6 +120,7 @@ import {
   querySelectorAllDeep,
   querySelectorDeep,
 } from 'query-selector-shadow-dom';
+import { ApiService } from './../api.service';
 
 @Component({
   selector: 'app-fluid-parent',
@@ -213,8 +214,9 @@ _updateDebounceTime: number = 500; // Amount of time required to pass WITHOUT "f
     },
   };
   templateValueKey: string;
+  response: any;
 
-  constructor(public datepipe: DatePipe) {}
+  constructor(public datepipe: DatePipe,private apiService: ApiService) {}
   ngOnInit(): void {
     console.log('on inittt');
     this.loadFormsBindData('calling from onInit');
@@ -497,6 +499,14 @@ _updateDebounceTime: number = 500; // Amount of time required to pass WITHOUT "f
 
       this.finalPolicyData.next(rawredactedValue);
       console.log(events.detail.data);
+      //instead of api call in React, api call in angular
+      this.apiService.postData(rawredactedValue).subscribe({
+        next: (res) => {
+          console.log('Response:', res);
+          this.response = res;
+        },
+        error: (err) => console.error('Error:', err)
+      });
     });
   }
 }

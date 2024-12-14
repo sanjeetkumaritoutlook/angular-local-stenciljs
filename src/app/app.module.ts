@@ -8,6 +8,7 @@ import { FluidParentComponent } from './fluid-parent/fluid-parent.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LibraryComponentsComponent } from './library-components/library-components.component';
 import { TestPagesComponent } from './test-pages/test-pages.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TestPagesComponent } from './test-pages/test-pages.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
