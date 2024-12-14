@@ -1,5 +1,4 @@
-import { Component, HostListener, EventEmitter,Output } from '@angular/core';
-import { fluid } from '../main';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,24 +7,9 @@ import { fluid } from '../main';
 })
 export class AppComponent {
   
-  innerText: string | undefined;
-  
-  validation = [
-    {
-      type: 'custom',
-      validatorFn: (value: any) => {
-        return value === '2023-05-23';
-      },
-      message: 'The value must 2023-05-23',
-    },
-  ];
   
 
-  @HostListener('buttonClicked', ['$event'])
-  buttonClickHandler(event: any) {
-    console.log(event);
-    this.innerText = `Button clicked was: ${event.detail.id}`;
-  }
+ 
 
   
 }

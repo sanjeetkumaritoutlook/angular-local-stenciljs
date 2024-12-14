@@ -1,14 +1,10 @@
-<div>Angular Application with StencilJS web components</div>
-<h1>from local running stencilJS app</h1>    
-<app-wrapper-editor></app-wrapper-editor>
-<test-button>Click!</test-button>
-
-<test-counter></test-counter>
-
-<div *ngIf="this.innerText">{{ this.innerText }}</div>
-
-<fluid-card title="" collapsible="false" remove-header-border>
-  <!-- Your FLUID Components Here! -->
-  <fluid-datepicker [validation]="validation"> </fluid-datepicker>
-</fluid-card>
-<app-fluid-parent></app-fluid-parent>
+   
+<h1>navigation links</h1>    
+<nav style="display: flex; flex-direction: column; gap: 10px;">
+  <a routerLink="/" routerLinkActive="active">Home</a>
+  <a routerLink="/fluid-form" routerLinkActive="active">FLUID Form</a>
+  <a routerLink="/text-editor" routerLinkActive="active">Editor</a>
+  <a routerLink="/library-components" routerLinkActive="active">LibraryComponents</a>
+  <a routerLink="/fluid-card" routerLinkActive="active">FLUID Card</a>
+</nav>
+<router-outlet></router-outlet>

@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-//import { defineCustomElements } from 'stenciljs-cop/loader';
+import { defineCustomElements } from 'stenciljs-components/loader';
 //add stencil local in new file
 import { fluidEnvironments } from '../fluid';
 
@@ -13,7 +13,7 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-//defineCustomElements();
+defineCustomElements();
 
 const script = document.createElement('script');
 
