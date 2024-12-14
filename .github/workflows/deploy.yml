@@ -40,7 +40,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --base-href "/angular-cop/"
+        run: npm run build -- --base-href "/angular-local-stenciljs/"
      #base-href in an Angular app defines the root path for resolving relative URLs to assets (CSS, JS, etc.). 
      #By default, Angular apps assume they are hosted at the root (/). 
      #The trailing slash at the end of base-href is important.
@@ -48,10 +48,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: ./dist/angular-cop
+          path: ./dist/angular-local-stenciljs
       #Check outputPath in  angular.json file
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/angular-cop
+          publish_dir: ./dist/angular-local-stenciljs
