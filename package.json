@@ -20,7 +20,7 @@
     "@angular/router": "~12.1.2",
     "query-selector-shadow-dom": "^1.0.1",
     "rxjs": "~6.6.0",
-    "stenciljs-components": "^1.0.13",
+    "stenciljs-components": "^2.0.1",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
