@@ -1372,7 +1372,7 @@ export const dublinTemplateConfig = (optionData) => ({
       label: 'Limit Currency:',
       dataPath: 'ptl_limit_ccy',
       controlName: 'ptl_limit_ccy',
-      elementTye: 'input',
+      elementType: 'input',
       type: 'text',
       initialValue: optionData?.premiumccy,
       conditionalOn: (formData: any) =>
